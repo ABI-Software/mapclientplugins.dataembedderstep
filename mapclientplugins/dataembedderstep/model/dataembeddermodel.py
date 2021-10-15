@@ -37,7 +37,7 @@ class DataEmbedderModel(object):
             "displayDataMarkerNames": False,
             "displayDataNodePoints": False,
             "displayDataLines": True,
-            "displayDataEmbedded": True,
+            "displayDataEmbedded": False,
             "displayModelCoordinatesField": None,
             "displayMarkerPoints": True,
             "displayMarkerNames": False,
