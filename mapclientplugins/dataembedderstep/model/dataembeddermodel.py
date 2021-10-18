@@ -426,10 +426,10 @@ class DataEmbedderModel(object):
 
     def createGraphics(self):
         hostFieldmodule = self.getHostRegion().getFieldmodule()
+        fittedGroup = None
         if self._displayModelCoordinatesField == self._dataEmbedder.getFittedCoordinatesField():
-            mesh = self._dataEmbedder.getFittedMesh()
-        else:
-            mesh = self._dataEmbedder.getHostMesh()
+            fittedGroup = self._dataEmbedder.getFittedGroup()
+        mesh = self._dataEmbedder.getHostMesh()
         meshDimension = mesh.getDimension()
         componentsCount = self._displayModelCoordinatesField.getNumberOfComponents()
 
@@ -533,6 +533,8 @@ class DataEmbedderModel(object):
 
             nodePoints = scene.createGraphicsPoints()
             nodePoints.setFieldDomainType(Field.DOMAIN_TYPE_NODES)
+            if fittedGroup:
+                nodePoints.setSubgroupField(fittedGroup)
             nodePoints.setCoordinateField(self._displayModelCoordinatesField)
             pointattr = nodePoints.getGraphicspointattributes()
             pointattr.setBaseSize([glyphWidth, glyphWidth, glyphWidth])
@@ -543,6 +545,8 @@ class DataEmbedderModel(object):
 
             nodeNumbers = scene.createGraphicsPoints()
             nodeNumbers.setFieldDomainType(Field.DOMAIN_TYPE_NODES)
+            if fittedGroup:
+                nodeNumbers.setSubgroupField(fittedGroup)
             nodeNumbers.setCoordinateField(self._displayModelCoordinatesField)
             pointattr = nodeNumbers.getGraphicspointattributes()
             pointattr.setLabelField(cmissNumberField)
@@ -553,6 +557,8 @@ class DataEmbedderModel(object):
 
             elementNumbers = scene.createGraphicsPoints()
             elementNumbers.setFieldDomainType(Field.DOMAIN_TYPE_MESH_HIGHEST_DIMENSION)
+            if fittedGroup:
+                elementNumbers.setSubgroupField(fittedGroup)
             elementNumbers.setCoordinateField(self._displayModelCoordinatesField)
             pointattr = elementNumbers.getGraphicspointattributes()
             pointattr.setLabelField(cmissNumberField)
@@ -563,6 +569,8 @@ class DataEmbedderModel(object):
 
             elementAxes = scene.createGraphicsPoints()
             elementAxes.setFieldDomainType(Field.DOMAIN_TYPE_MESH_HIGHEST_DIMENSION)
+            if fittedGroup:
+                elementAxes.setSubgroupField(fittedGroup)
             elementAxes.setCoordinateField(self._displayModelCoordinatesField)
             pointattr = elementAxes.getGraphicspointattributes()
             pointattr.setGlyphShapeType(Glyph.SHAPE_TYPE_AXES_123)
@@ -581,12 +589,16 @@ class DataEmbedderModel(object):
             elementAxes.setVisibilityFlag(self.isDisplayElementAxes())
 
             lines = scene.createGraphicsLines()
+            if fittedGroup:
+                lines.setSubgroupField(fittedGroup)
             lines.setCoordinateField(self._displayModelCoordinatesField)
             lines.setExterior(self.isDisplayLinesExterior())
             lines.setName("displayLines")
             lines.setVisibilityFlag(self.isDisplayLines())
 
             surfaces = scene.createGraphicsSurfaces()
+            if fittedGroup:
+                surfaces.setSubgroupField(fittedGroup)
             surfaces.setCoordinateField(self._displayModelCoordinatesField)
             surfaces.setRenderPolygonMode(Graphics.RENDER_POLYGON_MODE_WIREFRAME if self.isDisplaySurfacesWireframe()
                                           else Graphics.RENDER_POLYGON_MODE_SHADED)
