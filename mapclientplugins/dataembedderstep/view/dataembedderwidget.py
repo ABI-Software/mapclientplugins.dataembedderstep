@@ -74,7 +74,7 @@ class DataEmbedderWidget(QtWidgets.QWidget):
 
     def _setupConfigWidgets(self):
         """
-        Set up config widgets and display values from fitter object.
+        Set up widgets for setting initial configuration, mostly field and groups.
         """
         hostRegion = self._model.getHostRegion()
         dataRegion = self._model.getDataRegion()

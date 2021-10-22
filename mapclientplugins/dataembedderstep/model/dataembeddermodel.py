@@ -1,5 +1,5 @@
 """
-Geometric fit model adding visualisations to github.com/ABI-Software/scaffoldfitter
+Data Embedder Model adding visualisations to github.com/ABI-Software/dataembedder
 """
 import os
 import json
@@ -19,7 +19,7 @@ nodeDerivativeLabels = ["D1", "D2", "D3", "D12", "D13", "D23", "D123"]
 
 class DataEmbedderModel(object):
     """
-    Data Embedder Model adding visualisations to github.com/ABI-Software/dataembedder
+    Class adding visualisations to DataEmbedder back-end.
     """
 
     def __init__(self, zincScaffoldFileName: str, zincFittedGeometryFileName, zincDataFileName: str,
