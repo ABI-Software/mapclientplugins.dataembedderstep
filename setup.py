@@ -20,7 +20,7 @@ readme = readfile("README.rst", split=True)[3:]  # skip title
 # into the 'requirements.txt' file.
 requires = [
     # minimal requirements listing
-    "dataembedder @ https://github.com/ABI-Software/dataembedder/tarball/main",
+    "dataembedder @ https://api.github.com/repos/ABI-Software/dataembedder/tarball/main",
     "opencmiss.maths",
     "opencmiss.utils >= 0.3",
     "opencmiss.zinc >= 3.5",
