@@ -18,7 +18,15 @@ def readfile(filename, split=False):
 readme = readfile("README.rst", split=True)[3:]  # skip title
 # For requirements not hosted on PyPi place listings
 # into the 'requirements.txt' file.
-requires = []  # minimal requirements listing
+requires = [
+    # minimal requirements listing
+    "dataembedder @ https://api.github.com/repos/ABI-Software/dataembedder/tarball/main",
+    "opencmiss.maths",
+    "opencmiss.utils >= 0.3",
+    "opencmiss.zinc >= 3.5",
+    "opencmiss.zincwidgets >= 2.0",
+    "PySide2"
+]
 source_license = readfile("LICENSE")
 
 
@@ -43,7 +51,7 @@ setup(name='mapclientplugins.dataembedderstep',
     cmdclass={'install': InstallCommand,},
     author='Richard Christie',
     author_email='',
-    url='',
+    url='https://github.com/ABI-Software/mapclientplugins.dataembedderstep',
     packages=find_packages(exclude=['ez_setup',]),
     namespace_packages=['mapclientplugins'],
     include_package_data=True,

@@ -4,7 +4,7 @@ User interface for github.com/ABI-Software/dataembedder
 from PySide2 import QtCore, QtGui, QtWidgets
 
 from mapclientplugins.dataembedderstep.view.ui_dataembedderwidget import Ui_DataEmbedderWidget
-from opencmiss.utils.maths.vectorops import dot, magnitude, mult, normalize, sub
+from opencmiss.maths.vectorops import dot, magnitude, mult, normalize, sub
 from opencmiss.utils.zinc.field import field_is_managed_coordinates, field_is_managed_group
 
 
