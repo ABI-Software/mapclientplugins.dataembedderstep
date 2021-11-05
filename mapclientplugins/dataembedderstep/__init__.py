@@ -3,7 +3,7 @@
 MAP Client Plugin
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __author__ = 'Richard Christie'
 __stepname__ = 'DataEmbedder'
 __location__ = 'https://github.com/ABI-Software/mapclientplugins.dataembedderstep'
