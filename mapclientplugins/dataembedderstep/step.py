@@ -84,7 +84,7 @@ class DataEmbedderStep(WorkflowStepMountPoint):
 
         :param index: Index of the port to return.
         """
-        return self._port3_outputZincDataFile  # http://physiomeproject.org/workflow/1.0/rdf-schema#file_location
+        return self._model.getOutputModelFileName()
 
     def configure(self):
         """

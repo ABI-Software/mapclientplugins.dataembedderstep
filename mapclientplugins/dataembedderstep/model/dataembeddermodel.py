@@ -3,6 +3,7 @@ Data Embedder Model adding visualisations to github.com/ABI-Software/dataembedde
 """
 import os
 import json
+
 from opencmiss.utils.zinc.finiteelement import evaluate_field_nodeset_range
 from opencmiss.utils.zinc.general import ChangeManager
 from opencmiss.zinc.field import Field, FieldGroup
