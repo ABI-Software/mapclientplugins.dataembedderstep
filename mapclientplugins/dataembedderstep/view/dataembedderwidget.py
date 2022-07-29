@@ -266,9 +266,11 @@ class DataEmbedderWidget(QtWidgets.QWidget):
         self._ui.viewAll_pushButton.clicked.connect(self._viewAllButtonClicked)
 
     def _doneButtonClicked(self):
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         self._model.done()
         self._ui.dockWidget.setFloating(False)
         self._doneCallback()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
     def _stdViewsButtonClicked(self):
         sceneviewer = self._ui.sceneviewerwidget.getSceneviewer()
