@@ -430,6 +430,11 @@ class Ui_DataEmbedderWidget(object):
         self.horizontalLayout_2 = QHBoxLayout(self.bottom_frame)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(3, 3, 3, 3)
+        self.pushButtonDocumentation = QPushButton(self.bottom_frame)
+        self.pushButtonDocumentation.setObjectName(u"pushButtonDocumentation")
+
+        self.horizontalLayout_2.addWidget(self.pushButtonDocumentation)
+
         self.viewAll_pushButton = QPushButton(self.bottom_frame)
         self.viewAll_pushButton.setObjectName(u"viewAll_pushButton")
 
@@ -519,6 +524,7 @@ class Ui_DataEmbedderWidget(object):
         self.displaySurfacesExterior_checkBox.setText(QCoreApplication.translate("DataEmbedderWidget", u"Exterior", None))
         self.displaySurfacesTranslucent_checkBox.setText(QCoreApplication.translate("DataEmbedderWidget", u"Transluc.", None))
         self.displaySurfacesWireframe_checkBox.setText(QCoreApplication.translate("DataEmbedderWidget", u"Wireframe", None))
+        self.pushButtonDocumentation.setText(QCoreApplication.translate("DataEmbedderWidget", u"Online Documentation", None))
         self.viewAll_pushButton.setText(QCoreApplication.translate("DataEmbedderWidget", u"View All", None))
 #if QT_CONFIG(tooltip)
         self.stdViews_pushButton.setToolTip(QCoreApplication.translate("DataEmbedderWidget", u"<html><head/><body><p>Cycle standard views:<br/>x-y  x-z  y-z</p></body></html>", None))

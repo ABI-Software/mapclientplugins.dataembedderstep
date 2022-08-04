@@ -1,6 +1,8 @@
 """
 User interface for github.com/ABI-Software/dataembedder
 """
+import webbrowser
+
 from PySide2 import QtCore, QtGui, QtWidgets
 
 from mapclientplugins.dataembedderstep.view.ui_dataembedderwidget import Ui_DataEmbedderWidget
@@ -261,9 +263,13 @@ class DataEmbedderWidget(QtWidgets.QWidget):
     # === general widgets ===
 
     def _makeConnectionsGeneral(self):
+        self._ui.pushButtonDocumentation.clicked.connect(self._documentationButtonClicked)
         self._ui.done_pushButton.clicked.connect(self._doneButtonClicked)
         self._ui.stdViews_pushButton.clicked.connect(self._stdViewsButtonClicked)
         self._ui.viewAll_pushButton.clicked.connect(self._viewAllButtonClicked)
+
+    def _documentationButtonClicked(self):
+        webbrowser.open("https://abi-mapping-tools.readthedocs.io/en/latest/mapclientplugins.dataembedderstep/docs/index.html")
 
     def _doneButtonClicked(self):
         QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
