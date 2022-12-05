@@ -372,5 +372,7 @@ class DataEmbedderWidget(QtWidgets.QWidget):
         """
         Update and display widgets for current group
         """
-        self._ui.groupDimension_lineEdit.setText(str(self._dataEmbedder.getDataGroupDimension(self._currentGroupName)))
-        self._ui.groupSize_lineEdit.setText(str(self._dataEmbedder.getDataGroupSize(self._currentGroupName)))
+        self._ui.groupDimension_lineEdit.setText(
+            str(self._dataEmbedder.getDataGroupDimension(self._currentGroupName)) if self._currentGroupName else "")
+        self._ui.groupSize_lineEdit.setText(str(
+            self._dataEmbedder.getDataGroupSize(self._currentGroupName)) if self._currentGroupName else "")
