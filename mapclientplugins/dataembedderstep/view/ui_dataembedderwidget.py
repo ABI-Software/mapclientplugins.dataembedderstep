@@ -20,7 +20,7 @@ class Ui_DataEmbedderWidget(object):
     def setupUi(self, DataEmbedderWidget):
         if not DataEmbedderWidget.objectName():
             DataEmbedderWidget.setObjectName(u"DataEmbedderWidget")
-        DataEmbedderWidget.resize(1718, 1122)
+        DataEmbedderWidget.resize(1156, 887)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -71,37 +71,37 @@ class Ui_DataEmbedderWidget(object):
         self.configDataCoordinates_label = QLabel(self.config_groupBox)
         self.configDataCoordinates_label.setObjectName(u"configDataCoordinates_label")
 
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.configDataCoordinates_label)
+        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.configDataCoordinates_label)
 
         self.configDataCoordinates_fieldChooser = FieldChooserWidget(self.config_groupBox)
         self.configDataCoordinates_fieldChooser.setObjectName(u"configDataCoordinates_fieldChooser")
         sizePolicy3.setHeightForWidth(self.configDataCoordinates_fieldChooser.sizePolicy().hasHeightForWidth())
         self.configDataCoordinates_fieldChooser.setSizePolicy(sizePolicy3)
 
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.configDataCoordinates_fieldChooser)
+        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.configDataCoordinates_fieldChooser)
 
         self.configDiagnosticLevel_spinBox = QSpinBox(self.config_groupBox)
         self.configDiagnosticLevel_spinBox.setObjectName(u"configDiagnosticLevel_spinBox")
         self.configDiagnosticLevel_spinBox.setMaximum(2)
 
-        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.configDiagnosticLevel_spinBox)
+        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.configDiagnosticLevel_spinBox)
 
         self.configDiagnosticLevel_label = QLabel(self.config_groupBox)
         self.configDiagnosticLevel_label.setObjectName(u"configDiagnosticLevel_label")
 
-        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.configDiagnosticLevel_label)
+        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.configDiagnosticLevel_label)
 
         self.configDataMarkerGroup_label = QLabel(self.config_groupBox)
         self.configDataMarkerGroup_label.setObjectName(u"configDataMarkerGroup_label")
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.configDataMarkerGroup_label)
+        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.configDataMarkerGroup_label)
 
         self.configDataMarkerGroup_fieldChooser = FieldChooserWidget(self.config_groupBox)
         self.configDataMarkerGroup_fieldChooser.setObjectName(u"configDataMarkerGroup_fieldChooser")
         sizePolicy3.setHeightForWidth(self.configDataMarkerGroup_fieldChooser.sizePolicy().hasHeightForWidth())
         self.configDataMarkerGroup_fieldChooser.setSizePolicy(sizePolicy3)
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.configDataMarkerGroup_fieldChooser)
+        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.configDataMarkerGroup_fieldChooser)
 
         self.configMaterialCoordinates_label = QLabel(self.config_groupBox)
         self.configMaterialCoordinates_label.setObjectName(u"configMaterialCoordinates_label")
@@ -122,6 +122,16 @@ class Ui_DataEmbedderWidget(object):
         self.configHostMarkerGroup_fieldChooser.setObjectName(u"configHostMarkerGroup_fieldChooser")
 
         self.formLayout.setWidget(2, QFormLayout.FieldRole, self.configHostMarkerGroup_fieldChooser)
+
+        self.configHostProjectionGroup_label = QLabel(self.config_groupBox)
+        self.configHostProjectionGroup_label.setObjectName(u"configHostProjectionGroup_label")
+
+        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.configHostProjectionGroup_label)
+
+        self.configHostProjectionGroup_fieldChooser = FieldChooserWidget(self.config_groupBox)
+        self.configHostProjectionGroup_fieldChooser.setObjectName(u"configHostProjectionGroup_fieldChooser")
+
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.configHostProjectionGroup_fieldChooser)
 
 
         self.verticalLayout.addWidget(self.config_groupBox)
@@ -491,6 +501,10 @@ class Ui_DataEmbedderWidget(object):
         self.configMaterialCoordinates_fieldChooser.setToolTip(QCoreApplication.translate("DataEmbedderWidget", u"<html><head/><body><p>Host material coordinates to evaluate and store embedded data locations in.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.configHostMarkerGroup_label.setText(QCoreApplication.translate("DataEmbedderWidget", u"Host marker group:", None))
+        self.configHostProjectionGroup_label.setText(QCoreApplication.translate("DataEmbedderWidget", u"Host projection group:", None))
+#if QT_CONFIG(tooltip)
+        self.configHostProjectionGroup_fieldChooser.setToolTip(QCoreApplication.translate("DataEmbedderWidget", u"<html><head/><body><p>Optional group to project data onto, intersected with fitted group.</p><p>E.g. to limit embedding to a surface group.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.groups_groupBox.setTitle(QCoreApplication.translate("DataEmbedderWidget", u"Data groups:", None))
 #if QT_CONFIG(tooltip)
         self.groups_listView.setToolTip(QCoreApplication.translate("DataEmbedderWidget", u"<html><head/><body><p>Tick data groups to embed.</p></body></html>", None))
