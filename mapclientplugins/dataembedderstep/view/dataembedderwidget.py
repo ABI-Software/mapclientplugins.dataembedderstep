@@ -90,6 +90,10 @@ class DataEmbedderWidget(QtWidgets.QWidget):
         self._ui.configHostMarkerGroup_fieldChooser.setNullObjectName("-")
         self._ui.configHostMarkerGroup_fieldChooser.setConditional(field_is_managed_group)
         self._ui.configHostMarkerGroup_fieldChooser.setField(self._model.getHostMarkerGroup())
+        self._ui.configHostProjectionGroup_fieldChooser.setRegion(hostRegion)
+        self._ui.configHostProjectionGroup_fieldChooser.setNullObjectName("-")
+        self._ui.configHostProjectionGroup_fieldChooser.setConditional(field_is_managed_group)
+        self._ui.configHostProjectionGroup_fieldChooser.setField(self._model.getHostProjectionGroup())
         self._ui.configDataCoordinates_fieldChooser.setRegion(dataRegion)
         self._ui.configDataCoordinates_fieldChooser.setConditional(field_is_managed_coordinates)
         self._ui.configDataCoordinates_fieldChooser.setField(self._model.getDataCoordinatesField())
@@ -104,11 +108,16 @@ class DataEmbedderWidget(QtWidgets.QWidget):
             self._configFittedCoordinatesFieldChanged)
         self._ui.configMaterialCoordinates_fieldChooser.currentIndexChanged.connect(
             self._configMaterialCoordinatesFieldChanged)
-        self._ui.configHostMarkerGroup_fieldChooser.currentIndexChanged.connect(self._configHostMarkerGroupChanged)
+        self._ui.configHostMarkerGroup_fieldChooser.currentIndexChanged.connect(
+            self._configHostMarkerGroupChanged)
+        self._ui.configHostProjectionGroup_fieldChooser.currentIndexChanged.connect(
+            self._configHostProjectionGroupChanged)
         self._ui.configDataCoordinates_fieldChooser.currentIndexChanged.connect(
             self._configDataCoordinatesFieldChanged)
-        self._ui.configDataMarkerGroup_fieldChooser.currentIndexChanged.connect(self._configDataMarkerGroupChanged)
-        self._ui.configDiagnosticLevel_spinBox.valueChanged.connect(self._configDiagnosticLevelValueChanged)
+        self._ui.configDataMarkerGroup_fieldChooser.currentIndexChanged.connect(
+            self._configDataMarkerGroupChanged)
+        self._ui.configDiagnosticLevel_spinBox.valueChanged.connect(
+            self._configDiagnosticLevelValueChanged)
 
     def _configFittedCoordinatesFieldChanged(self, index):
         """
@@ -127,6 +136,12 @@ class DataEmbedderWidget(QtWidgets.QWidget):
         Callback for change in marker group field chooser widget.
         """
         self._model.setHostMarkerGroup(self._ui.configHostMarkerGroup_fieldChooser.getField())
+
+    def _configHostProjectionGroupChanged(self, index):
+        """
+        Callback for change in projection group field chooser widget.
+        """
+        self._model.setHostProjectionGroup(self._ui.configHostProjectionGroup_fieldChooser.getField())
 
     def _configDataCoordinatesFieldChanged(self, index):
         """
@@ -357,5 +372,7 @@ class DataEmbedderWidget(QtWidgets.QWidget):
         """
         Update and display widgets for current group
         """
-        self._ui.groupDimension_lineEdit.setText(str(self._dataEmbedder.getDataGroupDimension(self._currentGroupName)))
-        self._ui.groupSize_lineEdit.setText(str(self._dataEmbedder.getDataGroupSize(self._currentGroupName)))
+        self._ui.groupDimension_lineEdit.setText(
+            str(self._dataEmbedder.getDataGroupDimension(self._currentGroupName)) if self._currentGroupName else "")
+        self._ui.groupSize_lineEdit.setText(str(
+            self._dataEmbedder.getDataGroupSize(self._currentGroupName)) if self._currentGroupName else "")

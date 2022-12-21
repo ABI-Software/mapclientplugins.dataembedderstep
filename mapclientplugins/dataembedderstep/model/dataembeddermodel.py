@@ -137,6 +137,13 @@ class DataEmbedderModel(object):
         if self._dataEmbedder.setHostMarkerGroup(group):
             self.createGraphics()
 
+    def getHostProjectionGroup(self) -> Field:
+        return self._dataEmbedder.getHostProjectionGroup()
+
+    def setHostProjectionGroup(self, group):
+        if self._dataEmbedder.setHostProjectionGroup(group):
+            self.createGraphics()
+
     def getDataCoordinatesField(self) -> Field:
         return self._dataEmbedder.getDataCoordinatesField()
 
