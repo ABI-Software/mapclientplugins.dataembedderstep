@@ -3,7 +3,7 @@
 MAP Client Plugin Step
 """
 import json
-from PySide2 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
 from mapclientplugins.dataembedderstep.configuredialog import ConfigureDialog

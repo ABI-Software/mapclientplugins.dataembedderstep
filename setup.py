@@ -39,7 +39,7 @@ requires = [
     "opencmiss.utils >= 0.3",
     "opencmiss.zinc >= 3.10",
     "opencmiss.zincwidgets >= 2.0",
-    "PySide2"
+    "PySide6"
 ]
 source_license = readfile("LICENSE")
 
