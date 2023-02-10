@@ -34,7 +34,7 @@ def readfile(filename, split=False):
 readme = readfile("README.rst", split=True)[3:]  # skip title
 requires = [
     # minimal requirements listing
-    "dataembedder @ https://api.github.com/repos/ABI-Software/dataembedder/tarball/v0.1.0",
+    "dataembedder >= 0.3.0",
     "opencmiss.maths",
     "opencmiss.utils >= 0.3",
     "opencmiss.zinc >= 3.10",
