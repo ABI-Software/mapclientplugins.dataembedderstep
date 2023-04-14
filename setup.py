@@ -34,11 +34,11 @@ def readfile(filename, split=False):
 readme = readfile("README.rst", split=True)[3:]  # skip title
 requires = [
     # minimal requirements listing
-    "dataembedder >= 0.3.0",
-    "opencmiss.maths",
-    "opencmiss.utils >= 0.3",
-    "opencmiss.zinc >= 3.10",
-    "opencmiss.zincwidgets >= 2.0",
+    "dataembedder >= 0.3",
+    "cmlibs.maths >= 0.3",
+    "cmlibs.utils >= 0.4",
+    "cmlibs.zinc >= 3.99",
+    "cmlibs.widgets >= 2.3",
     "PySide6"
 ]
 source_license = readfile("LICENSE")

@@ -4,12 +4,12 @@ Data Embedder Model adding visualisations to github.com/ABI-Software/dataembedde
 import os
 import json
 
-from opencmiss.utils.zinc.finiteelement import evaluate_field_nodeset_range
-from opencmiss.utils.zinc.general import ChangeManager
-from opencmiss.zinc.field import Field, FieldGroup
-from opencmiss.zinc.glyph import Glyph
-from opencmiss.zinc.graphics import Graphics
-from opencmiss.zinc.material import Material
+from cmlibs.utils.zinc.finiteelement import evaluate_field_nodeset_range
+from cmlibs.utils.zinc.general import ChangeManager
+from cmlibs.zinc.field import Field, FieldGroup
+from cmlibs.zinc.glyph import Glyph
+from cmlibs.zinc.graphics import Graphics
+from cmlibs.zinc.material import Material
 from dataembedder.dataembedder import DataEmbedder
 from mapclientplugins.dataembedderstep.utils.zinc_utils import get_scene_selection_group, create_scene_selection_group,\
     group_add_group_elements, group_add_group_nodes
