@@ -3,10 +3,10 @@ Created on Oct 13, 2021
 
 @author: Richard Christie
 """
-from opencmiss.utils.zinc.general import ChangeManager
-from opencmiss.zinc.node import Nodeset
-from opencmiss.zinc.field import Field, FieldGroup
-from opencmiss.zinc.scene import Scene
+from cmlibs.utils.zinc.general import ChangeManager
+from cmlibs.zinc.node import Nodeset
+from cmlibs.zinc.field import Field, FieldGroup
+from cmlibs.zinc.scene import Scene
 
 
 def get_scene_selection_group(scene: Scene, subelement_handling_mode=FieldGroup.SUBELEMENT_HANDLING_MODE_FULL):

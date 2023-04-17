@@ -6,8 +6,8 @@ import webbrowser
 from PySide6 import QtCore, QtGui, QtWidgets
 
 from mapclientplugins.dataembedderstep.view.ui_dataembedderwidget import Ui_DataEmbedderWidget
-from opencmiss.maths.vectorops import dot, magnitude, mult, normalize, sub
-from opencmiss.utils.zinc.field import field_is_managed_coordinates, field_is_managed_group
+from cmlibs.maths.vectorops import dot, magnitude, mult, normalize, sub
+from cmlibs.utils.zinc.field import field_is_managed_coordinates, field_is_managed_group
 
 
 class DataEmbedderWidget(QtWidgets.QWidget):
