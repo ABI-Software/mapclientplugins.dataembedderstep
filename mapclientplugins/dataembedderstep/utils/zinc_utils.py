@@ -3,7 +3,7 @@ Created on Oct 13, 2021
 
 @author: Richard Christie
 """
-from cmlibs.utils.zinc.general import ChangeManager
+from cmlibs.utils.zinc.general import ChangeManager, HierarchicalChangeManager
 from cmlibs.zinc.node import Nodeset
 from cmlibs.zinc.field import Field, FieldGroup
 from cmlibs.zinc.scene import Scene
@@ -62,17 +62,15 @@ def group_add_group_elements(group: FieldGroup, other_group: FieldGroup, highest
     :param highest_dimension_only: If set (default), only add elements of
     highest dimension present in other_group, otherwise add all dimensions.
     """
-    fieldmodule = group.getFieldmodule()
-    with ChangeManager(fieldmodule):
+    region = group.getFieldmodule().getRegion()
+    with HierarchicalChangeManager(region):
+        other_fieldmodule = other_group.getFieldmodule()
         for dimension in range(3, 0, -1):
-            mesh = fieldmodule.findMeshByDimension(dimension)
-            other_element_group = other_group.getFieldElementGroup(mesh)
-            if other_element_group.isValid() and (other_element_group.getMeshGroup().getSize() > 0):
-                element_group = group.getFieldElementGroup(mesh)
-                if not element_group.isValid():
-                    element_group = group.createFieldElementGroup(mesh)
-                mesh_group = element_group.getMeshGroup()
-                mesh_group.addElementsConditional(other_element_group)
+            mesh = other_fieldmodule.findMeshByDimension(dimension)
+            other_mesh_group = other_group.getMeshGroup(mesh)
+            if other_mesh_group.isValid() and (other_mesh_group.getSize() > 0):
+                mesh_group = group.getOrCreateMeshGroup(mesh)
+                mesh_group.addElementsConditional(other_group)
                 if highest_dimension_only:
                     break
 
@@ -84,13 +82,12 @@ def group_add_group_nodes(group: FieldGroup, other_group: FieldGroup, nodeset: N
     :param other_group:  Zinc FieldGroup to add nodes from.
     :param nodeset: Nodeset to add nodes from.
     """
-    other_node_group = other_group.getFieldNodeGroup(nodeset)
-    if other_node_group.isValid() and (other_node_group.getNodesetGroup().getSize() > 0):
-        node_group = group.getFieldNodeGroup(nodeset)
-        if not node_group.isValid():
-            node_group = group.createFieldNodeGroup(nodeset)
-        nodeset_group = node_group.getNodesetGroup()
-        nodeset_group.addNodesConditional(other_group.getFieldNodeGroup(nodeset))
+    other_nodeset_group = other_group.getNodesetGroup(nodeset)
+    if other_nodeset_group.isValid() and (other_nodeset_group.getSize() > 0):
+        region = group.getFieldmodule().getRegion()
+        with HierarchicalChangeManager(region):
+            nodeset_group = group.getOrCreateNodesetGroup(nodeset)
+            nodeset_group.addNodesConditional(other_group)
 
 
 def field_is_managed_real_1_to_3_components(field_in: Field):
