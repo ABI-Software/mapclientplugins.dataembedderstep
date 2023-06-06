@@ -4,6 +4,7 @@ Created on Oct 13, 2021
 @author: Richard Christie
 """
 from cmlibs.utils.zinc.general import ChangeManager, HierarchicalChangeManager
+from cmlibs.widgets.definitions import SELECTION_GROUP_NAME
 from cmlibs.zinc.node import Nodeset
 from cmlibs.zinc.field import Field, FieldGroup
 from cmlibs.zinc.scene import Scene
@@ -24,9 +25,6 @@ def get_scene_selection_group(scene: Scene, subelement_handling_mode=FieldGroup.
     return None
 
 
-selection_group_name = 'cmiss_selection'
-
-
 def create_scene_selection_group(scene: Scene, subelement_handling_mode=FieldGroup.SUBELEMENT_HANDLING_MODE_FULL):
     """
     Create empty, unmanaged scene selection group of standard name.
@@ -40,7 +38,7 @@ def create_scene_selection_group(scene: Scene, subelement_handling_mode=FieldGro
     region = scene.getRegion()
     fieldmodule = region.getFieldmodule()
     with ChangeManager(fieldmodule):
-        selection_group = fieldmodule.findFieldByName(selection_group_name)
+        selection_group = fieldmodule.findFieldByName(SELECTION_GROUP_NAME)
         if selection_group.isValid():
             selection_group = selection_group.castGroup()
             if selection_group.isValid():
@@ -48,7 +46,7 @@ def create_scene_selection_group(scene: Scene, subelement_handling_mode=FieldGro
                 selection_group.setManaged(False)
         if not selection_group.isValid():
             selection_group = fieldmodule.createFieldGroup()
-            selection_group.setName(selection_group_name)
+            selection_group.setName(SELECTION_GROUP_NAME)
         selection_group.setSubelementHandlingMode(subelement_handling_mode)
     scene.setSelectionField(selection_group)
     return selection_group
