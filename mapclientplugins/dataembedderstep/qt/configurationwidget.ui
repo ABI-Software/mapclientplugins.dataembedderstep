@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Configuration</class>
+ <widget class="QWidget" name="Configuration">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Configuration</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="configFittedCoordinates_label">
+     <property name="text">
+      <string>Fitted coordinates:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="FieldChooserWidget" name="configFittedCoordinates_fieldChooser">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Host coordinates fitted to data, for finding embedded locations.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="configMaterialCoordinates_label">
+     <property name="text">
+      <string>Material coordinates:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="FieldChooserWidget" name="configMaterialCoordinates_fieldChooser">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Host material coordinates to evaluate and store embedded data locations in.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="configHostMarkerGroup_label">
+     <property name="text">
+      <string>Host marker group:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="FieldChooserWidget" name="configHostMarkerGroup_fieldChooser"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="configHostProjectionGroup_label">
+     <property name="text">
+      <string>Host projection group:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="FieldChooserWidget" name="configHostProjectionGroup_fieldChooser">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Optional group to project data onto, intersected with fitted group.&lt;/p&gt;&lt;p&gt;E.g. to limit embedding to a surface group.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="configDataCoordinates_label">
+     <property name="text">
+      <string>Data coordinates:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="FieldChooserWidget" name="configDataCoordinates_fieldChooser">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="configDataMarkerGroup_label">
+     <property name="text">
+      <string>Data marker group:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="FieldChooserWidget" name="configDataMarkerGroup_fieldChooser">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="configDiagnosticLevel_label">
+     <property name="text">
+      <string>Diagnostic level:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QSpinBox" name="configDiagnosticLevel_spinBox">
+     <property name="maximum">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FieldChooserWidget</class>
+   <extends>QComboBox</extends>
+   <header>cmlibs/widgets/fieldchooserwidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
